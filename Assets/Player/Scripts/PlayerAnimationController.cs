@@ -1,18 +1,13 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(NavMeshAgent))]
-[RequireComponent(typeof(Animator))]
 public class PlayerAnimationController : MonoBehaviour
 {
+    [SerializeField]
     private NavMeshAgent agent;
-    private Animator animator;
 
-    void Start()
-    {
-        animator = GetComponent<Animator>();
-        agent = GetComponent<NavMeshAgent>();
-    }
+    [SerializeField]
+    private Animator animator;
 
     void FixedUpdate()
     {
