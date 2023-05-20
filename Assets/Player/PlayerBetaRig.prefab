@@ -922,6 +922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9f874f762a3494428c0433f9047b54c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anotherDimensionOffset: {x: -100, y: 0, z: 0}
   agent: {fileID: 1945660599589360554}
   picker: {fileID: 2371145807560819502}
   playerCamera: {fileID: 2371145807890618868}

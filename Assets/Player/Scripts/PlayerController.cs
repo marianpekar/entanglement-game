@@ -4,6 +4,9 @@ using UnityEngine.AI;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
+    private Vector3 anotherDimensionOffset;
+
+    [SerializeField]
     private NavMeshAgent agent;
 
     [SerializeField]
@@ -43,6 +46,22 @@ public class PlayerController : MonoBehaviour
                 picker.DropObject();
                 picker.ResetSocketSotation(playerTransform.position, Vector3.up);
             }
+            else 
+            {
+                if (Physics.Raycast(playerCamera.ScreenPointToRay(Input.mousePosition), out var hit, int.MaxValue))
+                {
+                    picker.ResetSocketSotation(playerTransform.position, Vector3.up);
+
+                    Debug.DrawLine(playerCamera.ScreenToWorldPoint(Input.mousePosition), hit.point, Color.red);
+
+                    GameObject gameObject = hit.collider.gameObject;
+                    Teleportable teleportable = gameObject.GetComponent<Teleportable>();
+                    if (teleportable != null)
+                    {
+                        teleportable.Teleport(anotherDimensionOffset);
+                    }
+                }
+            }
         }
 
         if (Input.GetMouseButton((int)MouseButton.Middle))
@@ -60,21 +79,24 @@ public class PlayerController : MonoBehaviour
             picker.RotateSocketAround(playerTransform.position, Vector3.up, pickerSocketRoationSpeed * Time.deltaTime * scrollDelta);         
         }
 
-        if (!Input.GetMouseButton((int)MouseButton.Left) || !Physics.Raycast(playerCamera.ScreenPointToRay(Input.mousePosition), out var hit, int.MaxValue)) 
-                return;
-
-        picker.ResetSocketSotation(playerTransform.position, Vector3.up);
-
-        Debug.DrawLine(playerCamera.ScreenToWorldPoint(Input.mousePosition), hit.point, Color.red);
-
-        GameObject gameObject = hit.collider.gameObject;
-        Pickable pickable = gameObject.GetComponent<Pickable>();
-        if (pickable != null)
+        if (Input.GetMouseButton((int)MouseButton.Left))
         {
-            picker.PickObject(gameObject);
-        }
+            if (Physics.Raycast(playerCamera.ScreenPointToRay(Input.mousePosition), out var hit, int.MaxValue))
+            {
+                picker.ResetSocketSotation(playerTransform.position, Vector3.up);
 
-        SetTarget(hit.point);   
+                Debug.DrawLine(playerCamera.ScreenToWorldPoint(Input.mousePosition), hit.point, Color.red);
+
+                GameObject gameObject = hit.collider.gameObject;
+                Pickable pickable = gameObject.GetComponent<Pickable>();
+                if (pickable != null)
+                {
+                    picker.PickObject(gameObject);
+                }
+            }
+
+            SetTarget(hit.point);
+        }
     }
 
     private void SetTarget(Vector3 target)
