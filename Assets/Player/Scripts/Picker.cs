@@ -4,6 +4,7 @@ using UnityEngine.AI;
 public class Picker: MonoBehaviour
 {
     private GameObject pickedGO;
+    private bool isPicked;
     private Rigidbody pickedRigidbody;
     private NavMeshObstacle pickedNavMeshObstacle;
     private readonly float minPickableDistance = 2f;
@@ -18,12 +19,21 @@ public class Picker: MonoBehaviour
     private readonly float bobSpeed = 2f;
 
     private float socketRotatedAngle = 0f;
-    private readonly float maxRotatedAngle = 60f;
+    private readonly float maxRotatedAngle = 90f;
 
     void Update()
     {
         if (pickedGO && Vector3.Distance(socket.position, pickedGO.transform.position) <= minPickableDistance)
         {
+            if (!isPicked)
+            {
+                pickedRigidbody = pickedGO.GetComponent<Rigidbody>();
+                pickedRigidbody.isKinematic = true;
+                pickedNavMeshObstacle = pickedGO.GetComponent<NavMeshObstacle>();
+                pickedNavMeshObstacle.enabled = false;
+                isPicked = true;
+            }
+
             Vector3 targetPosition = new(socket.transform.position.x, socket.transform.position.y + Mathf.Sin(Time.time * bobSpeed) * bobOffset, socket.transform.position.z);
             pickedGO.transform.position = Vector3.Lerp(pickedGO.transform.position, targetPosition, Time.deltaTime * pickupSpeed);
             pickedGO.transform.rotation = socket.transform.rotation;
@@ -33,10 +43,6 @@ public class Picker: MonoBehaviour
     public void PickObject(GameObject gameObject)
     {
         pickedGO = gameObject;
-        pickedRigidbody = gameObject.GetComponent<Rigidbody>();
-        pickedRigidbody.isKinematic = true;
-        pickedNavMeshObstacle = gameObject.GetComponent<NavMeshObstacle>();
-        pickedNavMeshObstacle.enabled = false;
     }
 
     public void RotateSocketAround(Vector3 point, Vector3 axis, float angle)
@@ -65,6 +71,7 @@ public class Picker: MonoBehaviour
         pickedRigidbody.AddForce((socket.forward + socket.up).normalized * throwForce, ForceMode.Impulse);
         pickedNavMeshObstacle.enabled = true;
         pickedGO = null;
+        isPicked = false;
     }
 
     public void DropObject()
@@ -72,5 +79,6 @@ public class Picker: MonoBehaviour
         pickedRigidbody.isKinematic = false;
         pickedNavMeshObstacle.enabled = true;
         pickedGO = null;
+        isPicked = false;
     }
 }
