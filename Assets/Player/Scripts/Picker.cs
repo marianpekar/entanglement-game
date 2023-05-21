@@ -13,6 +13,9 @@ public class Picker: MonoBehaviour
     [SerializeField]
     private Transform socket;
 
+    [SerializeField]
+    private NavMeshAgent naveMeshAgent;
+
     private readonly float throwForce = 5f;
 
     private readonly float bobOffset = 0.12f;
@@ -31,6 +34,7 @@ public class Picker: MonoBehaviour
                 pickedRigidbody.useGravity = false;
                 pickedNavMeshObstacle = pickedGO.GetComponent<NavMeshObstacle>();
                 pickedNavMeshObstacle.enabled = false;
+                naveMeshAgent.destination = naveMeshAgent.gameObject.transform.position;
                 isPicked = true;
             }
 
@@ -42,6 +46,9 @@ public class Picker: MonoBehaviour
 
     public void PickObject(GameObject gameObject)
     {
+        if (pickedGO != null)
+            return;
+
         pickedGO = gameObject;
     }
 
