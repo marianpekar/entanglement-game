@@ -9,6 +9,8 @@ public class Teleportable : MonoBehaviour
     private readonly float lightIntensityStep = 25f;
     private float initialLightIntensity;
 
+    private float throwForce = 5f;
+
     private bool isTeleporting;
 
     private new Rigidbody rigidbody;
@@ -23,7 +25,10 @@ public class Teleportable : MonoBehaviour
         collider = GetComponent<Collider>();
         
         light = GetComponent<Light>();
-        initialLightIntensity = light.intensity;
+        if (light != null)
+        {
+            initialLightIntensity = light.intensity;
+        }
     }
 
     public void Teleport(Vector3 offset)
@@ -32,15 +37,15 @@ public class Teleportable : MonoBehaviour
             return;
 
         isTeleporting = true;
-
-        rigidbody.isKinematic = true;
-        collider.enabled = false;
-
         StartCoroutine(ShrinkAndTransport(offset));
     }
 
     public IEnumerator ShrinkAndTransport(Vector3 offset)
     {
+        rigidbody.AddForce(Vector3.up * throwForce, ForceMode.Impulse);
+        yield return new WaitForSeconds(0.5f);
+        collider.enabled = false;
+
         while (transform.localScale.x > 0.001f)
         {
             float scale = transform.localScale.x - scaleStep * Time.deltaTime;
@@ -64,7 +69,7 @@ public class Teleportable : MonoBehaviour
     public void Restore()
     {
         transform.localScale = initialScale;
-        rigidbody.isKinematic = false;
+
         collider.enabled = true;
         light.intensity = initialLightIntensity;
     }

@@ -18,8 +18,8 @@ GameObject:
   - component: {fileID: 3053852519715067654}
   - component: {fileID: 3469287837714465944}
   m_Layer: 0
-  m_Name: GreenCube
-  m_TagString: GreenCube
+  m_Name: BlueCube
+  m_TagString: BlueCube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,14 +130,14 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.0023497343, g: 1, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.4969902, b: 1, a: 1}
   m_Intensity: 2
   m_Range: 2
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -170,7 +170,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1

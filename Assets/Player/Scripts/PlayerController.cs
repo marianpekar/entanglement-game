@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
 
     private float pickerSocketRoationSpeed = 600f;
 
+    private LayerMask ignoreTeleportLayerMask;
+
     public void SetActive(bool isActive)
     {
         this.isActive = isActive;
@@ -32,6 +34,11 @@ public class PlayerController : MonoBehaviour
         Left = 0,
         Right = 1,
         Middle = 2,
+    }
+
+    private void Awake()
+    {
+        ignoreTeleportLayerMask = LayerMask.GetMask("Ignore Teleport Raycast");
     }
 
     void Update()
@@ -48,7 +55,7 @@ public class PlayerController : MonoBehaviour
             }
             else 
             {
-                if (Physics.Raycast(playerCamera.ScreenPointToRay(Input.mousePosition), out var hit, int.MaxValue))
+                if (Physics.Raycast(playerCamera.ScreenPointToRay(Input.mousePosition), out var hit, int.MaxValue, ~ignoreTeleportLayerMask))
                 {
                     picker.ResetSocketSotation(playerTransform.position, Vector3.up);
 

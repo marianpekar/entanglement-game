@@ -28,7 +28,7 @@ public class Picker: MonoBehaviour
             if (!isPicked)
             {
                 pickedRigidbody = pickedGO.GetComponent<Rigidbody>();
-                pickedRigidbody.isKinematic = true;
+                pickedRigidbody.useGravity = false;
                 pickedNavMeshObstacle = pickedGO.GetComponent<NavMeshObstacle>();
                 pickedNavMeshObstacle.enabled = false;
                 isPicked = true;
@@ -67,18 +67,18 @@ public class Picker: MonoBehaviour
 
     public void ThrowObject()
     {
-        pickedRigidbody.isKinematic = false;
+        pickedRigidbody.useGravity = true;
         pickedRigidbody.AddForce((socket.forward + socket.up).normalized * throwForce, ForceMode.Impulse);
         pickedNavMeshObstacle.enabled = true;
-        pickedGO = null;
         isPicked = false;
+        pickedGO = null;
     }
 
     public void DropObject()
     {
-        pickedRigidbody.isKinematic = false;
+        pickedRigidbody.useGravity = true;
         pickedNavMeshObstacle.enabled = true;
-        pickedGO = null;
         isPicked = false;
+        pickedGO = null;
     }
 }

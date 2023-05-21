@@ -4,12 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - GreenCube
+  - BlueCube
+  - YellowCube
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ignore Teleport Raycast
   - Water
   - UI
   - 
