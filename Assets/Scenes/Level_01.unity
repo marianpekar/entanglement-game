@@ -1799,14 +1799,6 @@ PrefabInstance:
       propertyPath: OnReleased.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 29230878}
-    - target: {fileID: 8121214173234062191, guid: 68421621a6d86544cade0be6a473d6b2, type: 3}
-      propertyPath: OnPressed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TurnOff
-      objectReference: {fileID: 0}
-    - target: {fileID: 8121214173234062191, guid: 68421621a6d86544cade0be6a473d6b2, type: 3}
-      propertyPath: OnReleased.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TurnOn
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68421621a6d86544cade0be6a473d6b2, type: 3}
 --- !u!1001 &6540805508771445590
@@ -1816,10 +1808,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6198345228388861726, guid: 5086ca1ce96cf7c42bedf3171882720b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6540805510022319164, guid: 5086ca1ce96cf7c42bedf3171882720b, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -1865,26 +1853,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6540805510022319165, guid: 5086ca1ce96cf7c42bedf3171882720b, type: 3}
-      propertyPath: pushableOnlyByTags.Array.data[0]
-      value: BlueCube
-      objectReference: {fileID: 0}
-    - target: {fileID: 6540805510022319165, guid: 5086ca1ce96cf7c42bedf3171882720b, type: 3}
-      propertyPath: OnPressed.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6540805510022319165, guid: 5086ca1ce96cf7c42bedf3171882720b, type: 3}
-      propertyPath: OnReleased.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6540805510022319165, guid: 5086ca1ce96cf7c42bedf3171882720b, type: 3}
-      propertyPath: OnPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6540805510022319165, guid: 5086ca1ce96cf7c42bedf3171882720b, type: 3}
-      propertyPath: OnReleased.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6540805510022319165, guid: 5086ca1ce96cf7c42bedf3171882720b, type: 3}
       propertyPath: OnPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 727225453}
@@ -1892,49 +1860,9 @@ PrefabInstance:
       propertyPath: OnReleased.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 727225453}
-    - target: {fileID: 6540805510022319165, guid: 5086ca1ce96cf7c42bedf3171882720b, type: 3}
-      propertyPath: OnPressed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6540805510022319165, guid: 5086ca1ce96cf7c42bedf3171882720b, type: 3}
-      propertyPath: OnPressed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TurnOff
-      objectReference: {fileID: 0}
-    - target: {fileID: 6540805510022319165, guid: 5086ca1ce96cf7c42bedf3171882720b, type: 3}
-      propertyPath: OnReleased.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6540805510022319165, guid: 5086ca1ce96cf7c42bedf3171882720b, type: 3}
-      propertyPath: OnReleased.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TurnOn
-      objectReference: {fileID: 0}
-    - target: {fileID: 6540805510022319165, guid: 5086ca1ce96cf7c42bedf3171882720b, type: 3}
-      propertyPath: OnPressed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Fence, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6540805510022319165, guid: 5086ca1ce96cf7c42bedf3171882720b, type: 3}
-      propertyPath: OnReleased.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Fence, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6540805510022319165, guid: 5086ca1ce96cf7c42bedf3171882720b, type: 3}
-      propertyPath: OnPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 6540805510022319165, guid: 5086ca1ce96cf7c42bedf3171882720b, type: 3}
-      propertyPath: OnReleased.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 6540805510022319167, guid: 5086ca1ce96cf7c42bedf3171882720b, type: 3}
       propertyPath: m_Name
       value: BlueButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 6540805510022319167, guid: 5086ca1ce96cf7c42bedf3171882720b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6540805510022319167, guid: 5086ca1ce96cf7c42bedf3171882720b, type: 3}
-      propertyPath: m_TagString
-      value: BlueCube
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5086ca1ce96cf7c42bedf3171882720b, type: 3}
