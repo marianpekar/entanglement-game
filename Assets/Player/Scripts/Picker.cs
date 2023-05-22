@@ -34,7 +34,7 @@ public class Picker: MonoBehaviour
                 pickedRigidbody.useGravity = false;
                 pickedNavMeshObstacle = pickedGO.GetComponent<NavMeshObstacle>();
                 pickedNavMeshObstacle.enabled = false;
-                naveMeshAgent.destination = naveMeshAgent.gameObject.transform.position;
+                StopNavMeshAgent();
                 isPicked = true;
             }
 
@@ -42,6 +42,11 @@ public class Picker: MonoBehaviour
             pickedGO.transform.position = Vector3.Lerp(pickedGO.transform.position, targetPosition, Time.deltaTime * pickupSpeed);
             pickedGO.transform.rotation = socket.transform.rotation;
         }    
+    }
+
+    private void StopNavMeshAgent()
+    {
+        naveMeshAgent.destination = naveMeshAgent.gameObject.transform.position;
     }
 
     public void PickObject(GameObject gameObject)
@@ -74,6 +79,7 @@ public class Picker: MonoBehaviour
 
     public void ThrowObject()
     {
+        StopNavMeshAgent();
         pickedRigidbody.useGravity = true;
         pickedRigidbody.AddForce((socket.forward + socket.up).normalized * throwForce, ForceMode.Impulse);
         pickedNavMeshObstacle.enabled = true;
@@ -83,6 +89,7 @@ public class Picker: MonoBehaviour
 
     public void DropObject()
     {
+        StopNavMeshAgent();
         pickedRigidbody.useGravity = true;
         pickedNavMeshObstacle.enabled = true;
         isPicked = false;
