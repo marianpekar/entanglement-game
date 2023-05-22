@@ -772,7 +772,7 @@ GameObject:
   - component: {fileID: 1116250138}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -827,7 +827,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.4
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &2369068430949292386
 GameObject:
@@ -924,6 +924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   socket: {fileID: 412469145111954378}
+  naveMeshAgent: {fileID: 1945660599589360554}
 --- !u!114 &2371145807560819503
 MonoBehaviour:
   m_ObjectHideFlags: 0
