@@ -3,12 +3,7 @@ guid: 0e25926a5ac93eb47ad6d030b95ed31f
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: ButtonBase
-    second: {fileID: 2100000, guid: b295c2ba720fa7f458c2a2295e806430, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0

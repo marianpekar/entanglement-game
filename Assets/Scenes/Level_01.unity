@@ -1246,17 +1246,6 @@ Transform:
   m_Father: {fileID: 1415952789}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1855876307 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7080876194615446053, guid: e8206774dccc0404c8a4f802f3c3ac16, type: 3}
-  m_PrefabInstance: {fileID: 7080876195919416071}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2076949765
 GameObject:
   m_ObjectHideFlags: 0
@@ -2396,18 +2385,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 803451973, guid: e8206774dccc0404c8a4f802f3c3ac16, type: 3}
-      propertyPath: fader
-      value: 
-      objectReference: {fileID: 1855876307}
-    - target: {fileID: 803451973, guid: e8206774dccc0404c8a4f802f3c3ac16, type: 3}
-      propertyPath: nextLevelSceneName
-      value: Level_01
-      objectReference: {fileID: 0}
-    - target: {fileID: 803451973, guid: e8206774dccc0404c8a4f802f3c3ac16, type: 3}
-      propertyPath: players.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 803451973, guid: e8206774dccc0404c8a4f802f3c3ac16, type: 3}
       propertyPath: players.Array.data[0]
       value: 
