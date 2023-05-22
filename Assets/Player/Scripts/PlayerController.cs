@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
     private Picker picker;
 
     [SerializeField]
+    private ButtonPusher buttonPusher;
+
+    [SerializeField]
     private Camera playerCamera;
 
     [SerializeField]
@@ -99,6 +102,11 @@ public class PlayerController : MonoBehaviour
                 if (pickable != null)
                 {
                     picker.PickObject(gameObject);
+                }
+                ButtonPushable buttonPushable = gameObject.GetComponent<ButtonPushable>();
+                if (buttonPushable != null)
+                {
+                    buttonPusher.PushButton(buttonPushable);
                 }
             }
 
