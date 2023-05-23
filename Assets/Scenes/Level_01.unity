@@ -261,6 +261,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &306896743 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1558222959, guid: 9405f2f33e947d74f8abd042a69f93d5, type: 3}
+  m_PrefabInstance: {fileID: 1138774705598909109}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ee5f7edc9816748ae95682d3a64b7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &668104675
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1601,6 +1612,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerBetaRig
       objectReference: {fileID: 0}
+    - target: {fileID: 2371145807560819503, guid: 9405f2f33e947d74f8abd042a69f93d5, type: 3}
+      propertyPath: detectable
+      value: 
+      objectReference: {fileID: 306896743}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9405f2f33e947d74f8abd042a69f93d5, type: 3}
 --- !u!1001 &2124789948286726086
@@ -1732,9 +1747,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1227926822, guid: 88158a67f8820644b9a92e01e6fcee62, type: 3}
+      propertyPath: detectable
+      value: 
+      objectReference: {fileID: 996981228}
     - target: {fileID: 2689038257094494062, guid: 88158a67f8820644b9a92e01e6fcee62, type: 3}
       propertyPath: m_Name
       value: PlayerAlphaRig
+      objectReference: {fileID: 0}
+    - target: {fileID: 2689038257094494062, guid: 88158a67f8820644b9a92e01e6fcee62, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2689038257094494063, guid: 88158a67f8820644b9a92e01e6fcee62, type: 3}
       propertyPath: m_RootOrder

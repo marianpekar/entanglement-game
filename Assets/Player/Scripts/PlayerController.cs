@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
     private Camera playerCamera;
 
     [SerializeField]
+    private Detectable detectable;
+
+    [SerializeField]
     private Transform playerTransform;
 
     private bool isActive = true;
@@ -42,6 +45,11 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         ignoreTeleportLayerMask = LayerMask.GetMask("Ignore Teleport Raycast");
+    }
+
+    private void FixedUpdate()
+    {
+        detectable.CanBeHear = agent.velocity.magnitude > 0.1f;
     }
 
     void Update()
