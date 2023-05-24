@@ -32,17 +32,12 @@ public class DimensionSwitcher : MonoBehaviour
         playerBeta.SetActive(false);
     }
 
-    void Update()
+    public void Switch()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !isLocked)
-        {
-            isLocked = true;
-            Switch();
-        }
-    }
-
-    private void Switch()
-    {
+        if (isLocked)
+            return;
+        
+        isLocked = true;
         isAlpha = !isAlpha;
         StartCoroutine(FadeOut());
     }

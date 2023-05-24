@@ -25,7 +25,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Transform playerTransform;
 
-    private bool isActive = true;
+    [SerializeField]
+    private DimensionSwitcher dimensionSwitcher;
+
+    private bool isActive = false;
 
     private float pickerSocketRoationSpeed = 600f;
 
@@ -71,6 +74,11 @@ public class PlayerController : MonoBehaviour
     {
         if (!isActive)
             return;
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            dimensionSwitcher.Switch();
+        }
 
         if (Input.GetMouseButton((int)MouseButton.Right))
         {
