@@ -436,4 +436,7 @@ MonoBehaviour:
   cameraBeta: {fileID: 0}
   playerAlpha: {fileID: 0}
   playerBeta: {fileID: 0}
+  audioListenerGO: {fileID: 0}
+  playerAlphaBodyTransform: {fileID: 0}
+  playerBetaBodyTransform: {fileID: 0}
   fader: {fileID: 7080876194615446053}

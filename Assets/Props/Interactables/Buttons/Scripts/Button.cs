@@ -12,6 +12,8 @@ public class Button : MonoBehaviour
 
     public UnityEvent OnPressed;
     public UnityEvent OnReleased;
+    public UnityEvent OnPressBegin;
+    public UnityEvent OnReleaseBegin;
 
     [SerializeField]
     private string[] pushableOnlyByTags;
@@ -48,8 +50,10 @@ public class Button : MonoBehaviour
     {
         if (isPressed)
             return;
-
+        
         isPressed = true;
+
+        OnPressBegin?.Invoke();
 
         Vector3 targetPosition = new(buttonTop.transform.position.x, buttonTop.transform.position.y - pushOffset, buttonTop.transform.position.z);
         StartCoroutine(MoveTo(targetPosition, OnPressed));
@@ -61,6 +65,8 @@ public class Button : MonoBehaviour
             return;
 
         isPressed = false;
+
+        OnReleaseBegin?.Invoke();
 
         Vector3 targetPosition = new(buttonTop.transform.position.x, buttonTop.transform.position.y + pushOffset, buttonTop.transform.position.z);
         StartCoroutine(MoveTo(targetPosition, OnReleased));

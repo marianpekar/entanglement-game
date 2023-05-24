@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Teleportable : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class Teleportable : MonoBehaviour
     private new Rigidbody rigidbody;
     private new Collider collider;
     private new Light light;
+
+    public UnityEvent OnShrinkStarts;
 
     private void Awake()
     {
@@ -46,6 +49,7 @@ public class Teleportable : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         collider.enabled = false;
 
+        OnShrinkStarts?.Invoke();
         while (transform.localScale.x > 0.001f)
         {
             float scale = transform.localScale.x - scaleStep * Time.deltaTime;

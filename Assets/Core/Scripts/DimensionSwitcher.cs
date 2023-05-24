@@ -16,7 +16,16 @@ public class DimensionSwitcher : MonoBehaviour
     [SerializeField]
     private PlayerController playerBeta;
 
-    private bool isAlpha;
+    [SerializeField]
+    private GameObject audioListenerGO;
+
+    [SerializeField]
+    private Transform playerAlphaBodyTransform;
+
+    [SerializeField]
+    private Transform playerBetaBodyTransform;
+
+    private bool isAlpha = true;
     private bool isLocked;
 
     [SerializeField]
@@ -30,6 +39,7 @@ public class DimensionSwitcher : MonoBehaviour
     {
         cameraBeta.gameObject.SetActive(false);
         playerBeta.SetActive(false);
+        SwitchAudioListenerParent();
     }
 
     public void Switch()
@@ -39,6 +49,7 @@ public class DimensionSwitcher : MonoBehaviour
         
         isLocked = true;
         isAlpha = !isAlpha;
+
         StartCoroutine(FadeOut());
     }
 
@@ -61,18 +72,20 @@ public class DimensionSwitcher : MonoBehaviour
 
     private void SwitchCamera()
     {
-        cameraAlpha.gameObject.SetActive(!isAlpha);
-        cameraBeta.gameObject.SetActive(isAlpha);
+        cameraAlpha.gameObject.SetActive(isAlpha);
+        cameraBeta.gameObject.SetActive(!isAlpha);
     }
 
     private void SwitchPlayers()
     {
-        playerAlpha.SetActive(!isAlpha);
-        playerBeta.SetActive(isAlpha);
+        playerAlpha.SetActive(isAlpha);
+        playerBeta.SetActive(!isAlpha);
     }
 
     private IEnumerator FadeIn()
     {
+        SwitchAudioListenerParent();
+
         while (fader.color.a >= 0f)
         {
             currentFadeAlphaChannel -= fadeSpeed * Time.deltaTime;
@@ -81,5 +94,11 @@ public class DimensionSwitcher : MonoBehaviour
         }
 
         isLocked = false;
+    }
+
+    private void SwitchAudioListenerParent()
+    {
+        audioListenerGO.transform.position = isAlpha ? playerAlphaBodyTransform.position : playerBetaBodyTransform.position;
+        audioListenerGO.transform.parent = isAlpha ? playerAlphaBodyTransform : playerBetaBodyTransform;
     }
 }
