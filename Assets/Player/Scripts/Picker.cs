@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class Picker: MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class Picker: MonoBehaviour
     private float socketRotatedAngle = 0f;
     private readonly float maxRotatedAngle = 90f;
 
+    public UnityEvent OnPick; 
+
     void Update()
     {
         if (pickedGO && Vector3.Distance(socket.position, pickedGO.transform.position) <= minPickableDistance)
@@ -36,6 +39,7 @@ public class Picker: MonoBehaviour
                 pickedNavMeshObstacle.enabled = false;
                 StopNavMeshAgent();
                 isPicked = true;
+                OnPick?.Invoke();
             }
 
             Vector3 targetPosition = new(socket.transform.position.x, socket.transform.position.y + Mathf.Sin(Time.time * bobSpeed) * bobOffset, socket.transform.position.z);
