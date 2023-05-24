@@ -1370,7 +1370,24 @@ MonoBehaviour:
   picker: {fileID: 1227926821}
   buttonPusher: {fileID: 1313608039}
   playerCamera: {fileID: 2689038256232095159}
+  detectable: {fileID: 996981228}
   playerTransform: {fileID: 8112029251026533077}
+  animationController: {fileID: 1227926820}
+  OnPlayerKilled:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: RestartCurrentLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1313608039
 MonoBehaviour:
   m_ObjectHideFlags: 0

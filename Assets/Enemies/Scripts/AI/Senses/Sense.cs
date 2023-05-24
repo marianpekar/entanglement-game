@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -5,6 +6,8 @@ public class Sense : MonoBehaviour
 {
     public Detectable detectable;
     public float distance;
+
+    public float delayBeforeLostInterestOnLost = 1f;
 
     protected bool isSensing;
 
@@ -24,8 +27,14 @@ public class Sense : MonoBehaviour
     }
     private void Lost(Detectable detectable)
     {
+        StartCoroutine(WaitAndLost(detectable));
+    }
+
+    private IEnumerator WaitAndLost(Detectable detectable)
+    {
+        yield return new WaitForSeconds(delayBeforeLostInterestOnLost);
         isSensing = false;
-        OnLost?.Invoke(detectable); 
+        OnLost?.Invoke(detectable);
     }
 
     void Update()

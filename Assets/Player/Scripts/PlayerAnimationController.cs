@@ -13,4 +13,9 @@ public class PlayerAnimationController : MonoBehaviour
     {
         animator.SetBool("isRunning", !(agent.remainingDistance <= 0.1));
     }
+
+    public void TriggerDie()
+    {
+        animator.SetTrigger("die");
+    }
 }

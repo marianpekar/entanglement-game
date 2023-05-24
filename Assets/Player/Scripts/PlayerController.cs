@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
@@ -29,6 +30,20 @@ public class PlayerController : MonoBehaviour
     private float pickerSocketRoationSpeed = 600f;
 
     private LayerMask ignoreTeleportLayerMask;
+
+    [SerializeField]
+    private PlayerAnimationController animationController;
+
+    [SerializeField]
+    private UnityEvent OnPlayerKilled;
+
+    public void Kill()
+    {
+        SetActive(false);
+        animationController.TriggerDie();
+        agent.isStopped = true;
+        OnPlayerKilled?.Invoke();
+    }
 
     public void SetActive(bool isActive)
     {

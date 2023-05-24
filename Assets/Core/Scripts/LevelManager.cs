@@ -72,10 +72,10 @@ public class LevelManager : MonoBehaviour
 
     private void LoadNextLevel()
     {
-        StartCoroutine(FadeOutAndLoadScene());
+        StartCoroutine(FadeOutAndLoadScene(nextLevelSceneName));
     }
 
-    private IEnumerator FadeOutAndLoadScene()
+    private IEnumerator FadeOutAndLoadScene(string sceneName)
     {
         yield return new WaitForSeconds(beforeFadeStartsDelay);
         while (fader.color.a < 1f)
@@ -86,6 +86,12 @@ public class LevelManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        SceneManager.LoadScene(nextLevelSceneName);
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void RestartCurrentLevel()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        StartCoroutine(FadeOutAndLoadScene(scene.name));
     }
 }
