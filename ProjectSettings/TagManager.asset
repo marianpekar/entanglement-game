@@ -6,6 +6,8 @@ TagManager:
   tags:
   - BlueCube
   - YellowCube
+  - RedCube
+  - GreenCube
   layers:
   - Default
   - TransparentFX

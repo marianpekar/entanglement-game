@@ -69,7 +69,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Fence, Assembly-CSharp
-        m_MethodName: TurnOn
+        m_MethodName: TurnOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -236,7 +236,7 @@ MonoBehaviour:
   audioClips:
   - {fileID: 8300000, guid: 0abbdb14825903f4494c02c2cca99caa, type: 3}
   - {fileID: 8300000, guid: c8fefb461cc70e34ca316a86ff979ab4, type: 3}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1923460908}
 --- !u!1001 &8121214172972291357
 PrefabInstance:
   m_ObjectHideFlags: 0
