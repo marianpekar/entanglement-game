@@ -11,12 +11,18 @@ public class Fence : MonoBehaviour
 
     public void TurnOff()
     {
+        if (!field.activeInHierarchy)
+            return;
+
         OnTurnOff?.Invoke();
         field.SetActive(false);
     }
 
     public void TurnOn()
     {
+        if (field.activeInHierarchy)
+            return;
+
         OnTurnOn?.Invoke();
         field.SetActive(true);
     }
