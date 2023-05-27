@@ -2,9 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System.Collections.Generic;
 using TMPro;
-using System;
 
 public class LevelManager : MonoBehaviour
 {
@@ -106,6 +104,7 @@ public class LevelManager : MonoBehaviour
         if (numPlayersOnExitPad < players.Length)
             return;
 
+        UnlockNextLevel();
         DisablePlayerControllers();
         LoadNextLevel();
     }
@@ -126,6 +125,14 @@ public class LevelManager : MonoBehaviour
     private void LoadNextLevel()
     {
         StartCoroutine(FadeOutAndLoadScene(nextLevelSceneName));
+    }
+
+    private void UnlockNextLevel()
+    {
+        if (!PlayerPrefs.HasKey(nextLevelSceneName))
+        {
+            PlayerPrefs.SetInt(nextLevelSceneName, 1);
+        }
     }
 
     private IEnumerator FadeOutAndLoadScene(string sceneName)
