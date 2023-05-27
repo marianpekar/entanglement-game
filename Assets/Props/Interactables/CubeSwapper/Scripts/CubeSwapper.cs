@@ -56,6 +56,9 @@ public class CubeSwapper : MonoBehaviour
 
     private IEnumerator ShrinkAndSwap()
     {
+        cube.GetComponent<Collider>().enabled = false;
+        cube.GetComponent<Rigidbody>().useGravity = false;
+
         while (cube.transform.localScale.x > 0.001f)
         {
             float scale = cube.transform.localScale.x - scaleStep * Time.deltaTime;
@@ -96,6 +99,9 @@ public class CubeSwapper : MonoBehaviour
         }
 
         isLocked = false;
+
+        cube.GetComponent<Collider>().enabled = true;
+        cube.GetComponent<Rigidbody>().useGravity = true;
     }
 
 }
