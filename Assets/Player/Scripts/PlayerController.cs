@@ -28,11 +28,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private DimensionSwitcher dimensionSwitcher;
 
+    [SerializeField]
+    public Texture2D cursorBrain;
+
+    [SerializeField]
+    public Texture2D cursorHand;
+
+    [SerializeField]
+    public Texture2D cursorWalk;
+
+    [SerializeField]
+    public Texture2D cursorCantWalk;
+
     private bool isActive = false;
 
     private float pickerSocketRoationSpeed = 600f;
-
-    private LayerMask ignoreTeleportLayerMask;
 
     [SerializeField]
     private PlayerAnimationController animationController;
@@ -60,9 +70,11 @@ public class PlayerController : MonoBehaviour
         Middle = 2,
     }
 
+    private NavMeshPath navMeshPath;
+
     private void Awake()
     {
-        ignoreTeleportLayerMask = LayerMask.GetMask("Ignore Teleport Raycast");
+        navMeshPath = new NavMeshPath();
     }
 
     private void FixedUpdate()
@@ -75,32 +87,77 @@ public class PlayerController : MonoBehaviour
         if (!isActive)
             return;
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Physics.Raycast(playerCamera.ScreenPointToRay(Input.mousePosition), out var hit, int.MaxValue, ~(1 << 2 | 1 << 3)))
         {
-            dimensionSwitcher.Switch();
-        }
+            bool canWalk = agent.CalculatePath(hit.point, navMeshPath);
 
-        if (Input.GetMouseButton((int)MouseButton.Right))
-        {
-            if (picker.HasPickable())
+            GameObject gameObject = hit.collider.gameObject;
+
+            Teleportable teleportable = gameObject.GetComponent<Teleportable>();
+            Pickable pickable = gameObject.GetComponent<Pickable>();
+            ButtonPushable buttonPushable = gameObject.GetComponent<ButtonPushable>();
+
+            if (teleportable != null || pickable != null)
             {
-                picker.DropObject();
-                picker.ResetSocketSotation(playerTransform.position, Vector3.up);
+                Cursor.SetCursor(cursorBrain, Vector2.zero, CursorMode.Auto);
+                canWalk = true;
             }
-            else 
+            else if (buttonPushable != null)
             {
-                if (Physics.Raycast(playerCamera.ScreenPointToRay(Input.mousePosition), out var hit, int.MaxValue, ~ignoreTeleportLayerMask))
+                Cursor.SetCursor(cursorHand, Vector2.zero, CursorMode.Auto);
+                canWalk = true;
+            }
+            else
+            {
+                if (!canWalk)
+                {
+                    Cursor.SetCursor(cursorCantWalk, Vector2.zero, CursorMode.Auto);
+                }
+                else
+                {
+                    Cursor.SetCursor(cursorWalk, Vector2.zero, CursorMode.Auto);
+                }
+            }
+
+            if (Input.GetMouseButton((int)MouseButton.Right))
+            {
+                if (picker.HasPickable())
+                {
+                    picker.DropObject();
+                    picker.ResetSocketSotation(playerTransform.position, Vector3.up);
+                }
+                else
                 {
                     picker.ResetSocketSotation(playerTransform.position, Vector3.up);
 
                     Debug.DrawLine(playerCamera.ScreenToWorldPoint(Input.mousePosition), hit.point, Color.red);
 
-                    GameObject gameObject = hit.collider.gameObject;
-                    Teleportable teleportable = gameObject.GetComponent<Teleportable>();
                     if (teleportable != null)
                     {
                         teleportable.Teleport(anotherDimensionOffset);
-                    }
+                    }                
+                }
+            }
+
+            if (Input.GetMouseButton((int)MouseButton.Left))
+            {           
+                picker.ResetSocketSotation(playerTransform.position, Vector3.up);
+
+                Debug.DrawLine(playerCamera.ScreenToWorldPoint(Input.mousePosition), hit.point, Color.red);
+
+                if (pickable != null)
+                {
+                    picker.PickObject(gameObject);
+                }
+
+                if (buttonPushable != null)
+                {
+                    buttonPusher.PushButton(buttonPushable);
+                }          
+                
+                if (canWalk)
+                {
+                    SetTarget(hit.point);
                 }
             }
         }
@@ -120,28 +177,9 @@ public class PlayerController : MonoBehaviour
             picker.RotateSocketAround(playerTransform.position, Vector3.up, pickerSocketRoationSpeed * Time.deltaTime * scrollDelta);         
         }
 
-        if (Input.GetMouseButton((int)MouseButton.Left))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (Physics.Raycast(playerCamera.ScreenPointToRay(Input.mousePosition), out var hit, int.MaxValue))
-            {
-                picker.ResetSocketSotation(playerTransform.position, Vector3.up);
-
-                Debug.DrawLine(playerCamera.ScreenToWorldPoint(Input.mousePosition), hit.point, Color.red);
-
-                GameObject gameObject = hit.collider.gameObject;
-                Pickable pickable = gameObject.GetComponent<Pickable>();
-                if (pickable != null)
-                {
-                    picker.PickObject(gameObject);
-                }
-                ButtonPushable buttonPushable = gameObject.GetComponent<ButtonPushable>();
-                if (buttonPushable != null)
-                {
-                    buttonPusher.PushButton(buttonPushable);
-                }
-            }
-
-            SetTarget(hit.point);
+            dimensionSwitcher.Switch();
         }
     }
 

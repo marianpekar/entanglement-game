@@ -1252,7 +1252,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: -0.08
+  m_BaseOffset: -0.028
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!54 &1034534432
@@ -1476,6 +1476,10 @@ MonoBehaviour:
   detectable: {fileID: 996981228}
   playerTransform: {fileID: 8112029251026533077}
   dimensionSwitcher: {fileID: 0}
+  cursorBrain: {fileID: 2800000, guid: 09f1f20eee3680d418ab4b83dc57d9b5, type: 3}
+  cursorHand: {fileID: 2800000, guid: 23922cbc43fb0fd4a9d5b82521fa58dc, type: 3}
+  cursorWalk: {fileID: 2800000, guid: 22fb6c3996eb55b4496c0c7027e239a3, type: 3}
+  cursorCantWalk: {fileID: 2800000, guid: e325bf334ff1bc140b38428111f9518a, type: 3}
   animationController: {fileID: 1227926820}
   OnPlayerKilled:
     m_PersistentCalls:
