@@ -2,10 +2,15 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+using TMPro;
 
 public class LevelManager : MonoBehaviour
 {
     private int numPlayersOnExitPad = 0;
+
+    [SerializeField]
+    private string levelTitle;
 
     [SerializeField]
     private string nextLevelSceneName;
@@ -16,9 +21,18 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private Image fader;
 
+    [SerializeField]
+    private TextMeshProUGUI text;
+
     private readonly float fadeSpeed = 1.5f;
     private readonly float beforeFadeStartsDelay = 0.8f;
     private float currentFadeAlphaChannel = 0f;
+
+    private readonly float delayBeforeTitleType = 0.8f;
+    private readonly float levelTitleTypeCharDelay = 0.08f;
+    private readonly float levelTitleKeepTime = 2f;
+    private float currentTextFadeAlphaChannel;
+    private float textFadeOutSpeed = 0.8f;
 
     private void Awake()
     {
@@ -44,6 +58,41 @@ public class LevelManager : MonoBehaviour
         }
 
         players[0].SetActive(true);
+        StartCoroutine(TypeLevelTitle());
+    }
+
+    private IEnumerator TypeLevelTitle()
+    {
+        yield return new WaitForSeconds(delayBeforeTitleType);
+        foreach (char c in levelTitle)
+        {
+            text.text += c;
+            if (c != ' ')
+            {
+                yield return new WaitForSeconds(levelTitleTypeCharDelay);
+            }
+            else 
+            {
+                yield return new WaitForEndOfFrame();
+            }
+        }
+        yield return new WaitForSeconds(levelTitleKeepTime);
+
+        StartCoroutine(FadeOutTitle());
+    }
+
+    private IEnumerator FadeOutTitle()
+    {
+        currentTextFadeAlphaChannel = text.color.a;
+        while (text.color.a > 0f)
+        {
+            currentTextFadeAlphaChannel -= textFadeOutSpeed * Time.deltaTime;
+            text.color = new Color(text.color.r, text.color.g, text.color.b, currentTextFadeAlphaChannel);
+
+            yield return new WaitForEndOfFrame();
+        }
+
+        text.text = string.Empty;
     }
 
     public void AddPlayerOnExitPad()

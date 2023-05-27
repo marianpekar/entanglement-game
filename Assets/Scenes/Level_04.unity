@@ -2833,6 +2833,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 803451973, guid: e8206774dccc0404c8a4f802f3c3ac16, type: 3}
+      propertyPath: levelTitle
+      value: Double Slit Experiment
+      objectReference: {fileID: 0}
+    - target: {fileID: 803451973, guid: e8206774dccc0404c8a4f802f3c3ac16, type: 3}
       propertyPath: nextLevelSceneName
       value: Level_05
       objectReference: {fileID: 0}

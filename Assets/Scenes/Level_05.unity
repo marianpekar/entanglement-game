@@ -529,18 +529,18 @@ Transform:
   - {fileID: 18576210}
   - {fileID: 67749720}
   - {fileID: 1290734536}
-  - {fileID: 1338204314}
   - {fileID: 1211227180}
+  - {fileID: 1338204314}
   - {fileID: 1965023518}
   - {fileID: 1709909501}
   - {fileID: 1754488283}
+  - {fileID: 1975193319}
   - {fileID: 590698631}
   - {fileID: 425419819}
   - {fileID: 959529039}
   - {fileID: 774824554}
   - {fileID: 705080232}
   - {fileID: 1730581520}
-  - {fileID: 1975193319}
   - {fileID: 1787821112}
   - {fileID: 660371918}
   - {fileID: 801409348}
@@ -3077,7 +3077,7 @@ Transform:
   m_Children:
   - {fileID: 423618009}
   m_Father: {fileID: 70018550}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!65 &1211227181
 BoxCollider:
@@ -5058,7 +5058,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 70018550}
-  m_RootOrder: 23
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &2041935744
 GameObject:
@@ -5659,10 +5659,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 803451973, guid: e8206774dccc0404c8a4f802f3c3ac16, type: 3}
-      propertyPath: nextLevelSceneName
-      value: Level_06
-      objectReference: {fileID: 0}
     - target: {fileID: 803451973, guid: e8206774dccc0404c8a4f802f3c3ac16, type: 3}
       propertyPath: players.Array.data[0]
       value: 
