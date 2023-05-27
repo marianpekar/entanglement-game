@@ -40,6 +40,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public Texture2D cursorCantWalk;
 
+    [SerializeField]
+    public LevelManager levelManager;
+
     private bool isActive = false;
 
     private float pickerSocketRoationSpeed = 600f;
@@ -86,6 +89,34 @@ public class PlayerController : MonoBehaviour
     {
         if (!isActive)
             return;
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (levelManager.IsInGameMenuEnabled())
+            {
+                levelManager.HideInGameMenu();
+                Time.timeScale = 1f;
+            }
+            else
+            {
+                Time.timeScale = 0.1f;
+                levelManager.ShowInGameMenu();
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Return) && levelManager.IsInGameMenuEnabled())
+        {
+            Time.timeScale = 1f;
+            levelManager.HideInGameMenu();
+            levelManager.LoadMainMenu();
+        }
+
+        if (Input.GetKeyDown(KeyCode.R) && levelManager.IsInGameMenuEnabled())
+        {
+            Time.timeScale = 1f;
+            levelManager.HideInGameMenu();
+            levelManager.RestartCurrentLevel();
+        }
 
         if (Physics.Raycast(playerCamera.ScreenPointToRay(Input.mousePosition), out var hit, int.MaxValue, ~(1 << 2 | 1 << 3)))
         {

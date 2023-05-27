@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8258992779366829295}
   - component: {fileID: 8258992779329464559}
   m_Layer: 0
-  m_Name: ButtonOnPole 1
+  m_Name: ButtonOnPoleBeta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

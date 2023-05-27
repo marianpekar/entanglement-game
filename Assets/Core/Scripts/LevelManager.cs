@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using TMPro;
+using System;
 
 public class LevelManager : MonoBehaviour
 {
@@ -24,11 +25,14 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI text;
 
+    [SerializeField]
+    private TextMeshProUGUI inGameMenu;
+
     private readonly float fadeSpeed = 1.5f;
     private readonly float beforeFadeStartsDelay = 0.8f;
     private float currentFadeAlphaChannel = 0f;
 
-    private readonly float delayBeforeTitleType = 0.8f;
+    private readonly float delayBeforeTitleType = 1.3f;
     private readonly float levelTitleTypeCharDelay = 0.08f;
     private readonly float levelTitleKeepTime = 2f;
     private float currentTextFadeAlphaChannel;
@@ -63,20 +67,20 @@ public class LevelManager : MonoBehaviour
 
     private IEnumerator TypeLevelTitle()
     {
-        yield return new WaitForSeconds(delayBeforeTitleType);
+        yield return new WaitForSeconds(delayBeforeTitleType / (1f / Time.timeScale));
         foreach (char c in levelTitle)
         {
             text.text += c;
             if (c != ' ')
             {
-                yield return new WaitForSeconds(levelTitleTypeCharDelay);
+                yield return new WaitForSeconds(levelTitleTypeCharDelay / (1f / Time.timeScale));
             }
             else 
             {
                 yield return new WaitForEndOfFrame();
             }
         }
-        yield return new WaitForSeconds(levelTitleKeepTime);
+        yield return new WaitForSeconds(levelTitleKeepTime / (1f / Time.timeScale));
 
         StartCoroutine(FadeOutTitle());
     }
@@ -86,7 +90,7 @@ public class LevelManager : MonoBehaviour
         currentTextFadeAlphaChannel = text.color.a;
         while (text.color.a > 0f)
         {
-            currentTextFadeAlphaChannel -= textFadeOutSpeed * Time.deltaTime;
+            currentTextFadeAlphaChannel -= (textFadeOutSpeed * Time.deltaTime) * (1f / Time.timeScale);
             text.color = new Color(text.color.r, text.color.g, text.color.b, currentTextFadeAlphaChannel);
 
             yield return new WaitForEndOfFrame();
@@ -142,5 +146,25 @@ public class LevelManager : MonoBehaviour
     {
         Scene scene = SceneManager.GetActiveScene();
         StartCoroutine(FadeOutAndLoadScene(scene.name));
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void ShowInGameMenu()
+    {
+        inGameMenu.enabled = true;
+    }
+
+    public bool IsInGameMenuEnabled()
+    {
+        return inGameMenu.enabled;
+    }
+
+    public void HideInGameMenu()
+    {
+        inGameMenu.enabled = false;
     }
 }

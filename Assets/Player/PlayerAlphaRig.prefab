@@ -1480,6 +1480,7 @@ MonoBehaviour:
   cursorHand: {fileID: 2800000, guid: 23922cbc43fb0fd4a9d5b82521fa58dc, type: 3}
   cursorWalk: {fileID: 2800000, guid: 22fb6c3996eb55b4496c0c7027e239a3, type: 3}
   cursorCantWalk: {fileID: 2800000, guid: e325bf334ff1bc140b38428111f9518a, type: 3}
+  levelManager: {fileID: 0}
   animationController: {fileID: 1227926820}
   OnPlayerKilled:
     m_PersistentCalls:

@@ -3737,6 +3737,10 @@ PrefabInstance:
       value: PlayerBetaRig
       objectReference: {fileID: 0}
     - target: {fileID: 2371145807560819503, guid: 9405f2f33e947d74f8abd042a69f93d5, type: 3}
+      propertyPath: levelManager
+      value: 
+      objectReference: {fileID: 803451973}
+    - target: {fileID: 2371145807560819503, guid: 9405f2f33e947d74f8abd042a69f93d5, type: 3}
       propertyPath: dimensionSwitcher
       value: 
       objectReference: {fileID: 1524974566}
@@ -3810,6 +3814,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1227926822, guid: 88158a67f8820644b9a92e01e6fcee62, type: 3}
+      propertyPath: levelManager
+      value: 
+      objectReference: {fileID: 803451973}
     - target: {fileID: 1227926822, guid: 88158a67f8820644b9a92e01e6fcee62, type: 3}
       propertyPath: dimensionSwitcher
       value: 
