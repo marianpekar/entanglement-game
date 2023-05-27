@@ -33,4 +33,20 @@ public class Patrol : AIBehaviour
         isWaitingOnPatrolPoint = false;
         yield return new WaitForEndOfFrame();
     }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmos()
+    {
+        for (int i = 0; i < patrolPoints.Length - 1; i++)
+        {
+            Transform patrolPoint = patrolPoints[i];
+            Transform nextPatrolPoint = patrolPoints[i + 1];
+    
+            Gizmos.color = Color.magenta;
+            Gizmos.DrawLine(patrolPoint.position, nextPatrolPoint.position);
+            Gizmos.DrawSphere(patrolPoint.position, 0.125f);
+            Gizmos.DrawSphere(nextPatrolPoint.position, 0.125f);
+        }
+    }
+#endif
 }
