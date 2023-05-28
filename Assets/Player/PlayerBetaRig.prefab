@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1558222958}
   - component: {fileID: 1558222959}
   - component: {fileID: 1558222960}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Detectable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1063,7 +1063,7 @@ GameObject:
   - component: {fileID: 2371145807560819502}
   - component: {fileID: 2371145807560819503}
   - component: {fileID: 3397329315514124702}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PlayerBetaRig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1196,7 +1196,7 @@ GameObject:
   - component: {fileID: 2371145807890618867}
   - component: {fileID: 2371145807890618868}
   - component: {fileID: 2371145807890618866}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CameraBeta
   m_TagString: MainCamera
   m_Icon: {fileID: 0}

@@ -319,7 +319,7 @@ GameObject:
   - component: {fileID: 844444112}
   m_Layer: 0
   m_Name: BlueFence
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

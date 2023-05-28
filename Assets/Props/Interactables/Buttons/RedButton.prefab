@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2486662890164109464}
   - component: {fileID: 8667174518937249369}
   - component: {fileID: 8667174518937249368}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RedButton
   m_TagString: BlueCube
   m_Icon: {fileID: 0}
@@ -304,6 +304,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ButtonBase
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0e25926a5ac93eb47ad6d030b95ed31f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e25926a5ac93eb47ad6d030b95ed31f, type: 3}
 --- !u!4 &2668628813630879536 stripped
@@ -406,6 +410,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d1f0a9dddb1d11d48875b9b6462a7306, type: 3}
       propertyPath: m_Name
       value: ButtonTop
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d1f0a9dddb1d11d48875b9b6462a7306, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1f0a9dddb1d11d48875b9b6462a7306, type: 3}

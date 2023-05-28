@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 996981227}
   - component: {fileID: 996981228}
   - component: {fileID: 996981229}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Detectable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1296,7 +1296,7 @@ GameObject:
   - component: {fileID: 2689038256232095152}
   - component: {fileID: 2689038256232095159}
   - component: {fileID: 2689038256232095153}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CameraAlpha
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1389,7 +1389,7 @@ GameObject:
   - component: {fileID: 1227926821}
   - component: {fileID: 1227926822}
   - component: {fileID: 1313608039}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PlayerAlphaRig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
