@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour
         if (!isActive)
             return;
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             if (levelManager.IsInGameMenuEnabled())
             {
@@ -113,6 +113,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R) && levelManager.IsInGameMenuEnabled())
         {
+            isActive = false;
             Time.timeScale = 1f;
             levelManager.HideInGameMenu();
             levelManager.RestartCurrentLevel();
