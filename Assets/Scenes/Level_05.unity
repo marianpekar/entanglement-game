@@ -1322,6 +1322,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 218146276}
     m_Modifications:
+    - target: {fileID: 7197847117477128490, guid: a826a8bc6dd00e24cabd26bc2a465b24, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d34f5f0bec9d9d7418ba14f21429fc23, type: 2}
     - target: {fileID: 8368381283539940952, guid: a826a8bc6dd00e24cabd26bc2a465b24, type: 3}
       propertyPath: m_Name
       value: ButtonOnPole 1 (1)
@@ -3022,6 +3026,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 218146276}
     m_Modifications:
+    - target: {fileID: 7197847117477128490, guid: a826a8bc6dd00e24cabd26bc2a465b24, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d34f5f0bec9d9d7418ba14f21429fc23, type: 2}
     - target: {fileID: 8368381283539940952, guid: a826a8bc6dd00e24cabd26bc2a465b24, type: 3}
       propertyPath: m_Name
       value: ButtonOnPole 1
@@ -5319,6 +5327,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1259368348745096902, guid: 270d2c2d6fe3858419c7b3d1d08c0d6e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d34f5f0bec9d9d7418ba14f21429fc23, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 270d2c2d6fe3858419c7b3d1d08c0d6e, type: 3}
 --- !u!4 &6201156499093585178 stripped
@@ -5338,6 +5350,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 218146276}
     m_Modifications:
+    - target: {fileID: 5613208758963874090, guid: 7b69aad5de6edfd409a9437658119c3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d34f5f0bec9d9d7418ba14f21429fc23, type: 2}
     - target: {fileID: 6672129429620214450, guid: 7b69aad5de6edfd409a9437658119c3b, type: 3}
       propertyPath: acceptTag
       value: GreenCube
