@@ -112,6 +112,11 @@ public class LevelManager : MonoBehaviour
     public void RemovePlayerFromExitPad()
     {
         numPlayersOnExitPad--;
+
+        if (numPlayersOnExitPad <= 0)
+        {
+            numPlayersOnExitPad = 0;
+        }
     }
 
     private void DisablePlayerControllers()
