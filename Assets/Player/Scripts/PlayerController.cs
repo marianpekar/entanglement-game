@@ -151,7 +151,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
-            if (Input.GetMouseButton((int)MouseButton.Right))
+            if (Input.GetMouseButton((int)MouseButton.Right) && !levelManager.IsInGameMenuEnabled())
             {
                 if (picker.HasPickable())
                 {
@@ -171,7 +171,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
-            if (Input.GetMouseButton((int)MouseButton.Left))
+            if (Input.GetMouseButton((int)MouseButton.Left) && !levelManager.IsInGameMenuEnabled())
             {           
                 picker.ResetSocketSotation(playerTransform.position, Vector3.up);
 
@@ -194,7 +194,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButton((int)MouseButton.Middle))
+        if (Input.GetMouseButton((int)MouseButton.Middle) && !levelManager.IsInGameMenuEnabled())
         {
             if (picker.HasPickable())
             {
@@ -204,12 +204,12 @@ public class PlayerController : MonoBehaviour
         }
 
         float scrollDelta = Input.mouseScrollDelta.y;
-        if (Mathf.Abs(scrollDelta) > 0.001f && picker.HasPickable())
+        if (Mathf.Abs(scrollDelta) > 0.001f && picker.HasPickable() && !levelManager.IsInGameMenuEnabled())
         {
             picker.RotateSocketAround(playerTransform.position, Vector3.up, pickerSocketRoationSpeed * Time.deltaTime * scrollDelta);         
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !levelManager.IsInGameMenuEnabled())
         {
             dimensionSwitcher.Switch();
         }
